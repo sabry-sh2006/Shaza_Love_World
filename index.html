@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shaza × Sabry</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#12070b;color:#fff;min-height:100vh}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
+#login{background:linear-gradient(#0005,#0009),url("cover.jpg") center/cover}
+.card{width:min(430px,92vw);padding:35px 25px;border-radius:28px;background:#12070bcc;backdrop-filter:blur(8px);box-shadow:0 15px 50px #0008}
+h1{font-size:34px;margin:10px 0}.sub{opacity:.9;font-size:17px}
+input{width:100%;padding:16px;border:1px solid #ffffff44;border-radius:16px;background:#fff;color:#222;font-size:18px;text-align:center;margin:18px 0}
+button{border:0;border-radius:16px;padding:14px 20px;background:#d94f79;color:#fff;font-size:17px;font-weight:bold;cursor:pointer}
+#home{display:none;padding:30px 18px;background:radial-gradient(circle at top,#54202f,#10070a 55%)}
+.grid{width:min(900px,100%);display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;margin:25px auto}
+.item{padding:22px 12px;min-height:110px;background:#ffffff12;border:1px solid #ffffff18;border-radius:22px}
+.item span{font-size:30px;display:block;margin-bottom:8px}.item small{font-size:14px}
+.modal{display:none;position:fixed;inset:0;background:#000b;align-items:center;justify-content:center;padding:20px}.modal .card{max-height:85vh;overflow:auto}
+.close{float:left;background:#ffffff22}.text{line-height:2;font-size:18px}
+</style>
+</head>
+<body>
+<section id="login" class="screen">
+ <div class="card">
+  <div style="font-size:52px">❤️</div>
+  <h1>Shaza × Sabry</h1>
+  <p class="sub">اكتبي اسم حبيبك</p>
+  <input id="name" placeholder="sabry" autocomplete="off">
+  <button onclick="enter()">دخول إلى عالمنا ✨</button>
+  <p id="err" style="color:#ff9ab4"></p>
+ </div>
+</section>
+
+<section id="home" class="screen">
+ <div style="width:min(900px,100%)">
+  <h1>عالم شذا وصبري ❤️</h1>
+  <p class="sub">كل زرار هنا وراه حكاية صغيرة من عالمنا.</p>
+  <div class="grid">
+   <button class="item" onclick="openBox('حكايتنا','هنا هنحط حكايتنا من أول لحظة لحد دلوقتي ❤️')"><span>📖</span><small>حكايتنا</small></button>
+   <button class="item" onclick="openBox('من قلبي','هنا هنكتب الكلام اللي عايز أقوله لشذا بكل تفاصيله 💌')"><span>💌</span><small>من قلبي</small></button>
+   <button class="item" onclick="openBox('ذكرياتنا','هنا هنضيف الصور والذكريات واحدة واحدة 📸')"><span>📸</span><small>ذكرياتنا</small></button>
+   <button class="item" onclick="openBox('فيديوهاتنا','هنا هنضيف فيديوهاتكم وذكرياتكم 🎬')"><span>🎬</span><small>فيديوهاتنا</small></button>
+   <button class="item" onclick="openBox('أغانينا','هنا هنضيف الأغاني الخاصة بالموقع 🎵')"><span>🎵</span><small>أغانينا</small></button>
+   <button class="item" onclick="openBox('Shaza × Sabry','لعبة صغيرة مخصوص ليكم 🎮')"><span>🎮</span><small>اللعبة</small></button>
+   <button class="item" onclick="openBox('حاجات بحبها فيكي','تفاصيل صغيرة كتير بحبها فيكي ❤️')"><span>🥹</span><small>بحب فيكي</small></button>
+   <button class="item" onclick="openBox('مفاجأة','المفاجأة دي هنجهزها سوا 🎁')"><span>🎁</span><small>مفاجأة</small></button>
+  </div>
+ </div>
+</section>
+
+<div id="modal" class="modal"><div class="card"><button class="close" onclick="closeBox()">×</button><h1 id="mt"></h1><div id="mb" class="text"></div></div></div>
+
+<script>
+function enter(){
+ const n=document.getElementById('name').value.trim().toLowerCase();
+ if(n==='sabry'){
+   document.getElementById('login').style.display='none';
+   document.getElementById('home').style.display='flex';
+   // ضع ملف الأغنية الذي تملكه باسم song.mp3 داخل نفس المجلد ثم فعّل السطر التالي:
+   // new Audio('song.mp3').play();
+ }else document.getElementById('err').textContent='اكتبي الاسم بالظبط ❤️';
+}
+function openBox(t,b){document.getElementById('mt').textContent=t;document.getElementById('mb').textContent=b;document.getElementById('modal').style.display='flex'}
+function closeBox(){document.getElementById('modal').style.display='none'}
+</script>
+</body>
+</html>
